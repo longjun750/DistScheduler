@@ -64,19 +64,33 @@ public class JobController {
         jobService.removeJob(jobName, jobGroupName, triggerName, triggerGroupName);
     }
 
-    @ApiOperation(value = "启动所有任务")
+    @ApiOperation(value = "暂停任务")
+    @GetMapping(value = "/pauseJob")
+    public void pauseJob(@RequestParam(value = "jobName") String jobName,
+                         @RequestParam(value = "jobGroupName", required = false, defaultValue = "DEFAULT") String jobGroupName) {
+        jobService.pauseJob(jobName, jobGroupName);
+    }
+
+    @ApiOperation(value = "启动任务")
+    @GetMapping(value = "/resumeJob")
+    public void resumeJob(@RequestParam(value = "jobName") String jobName,
+                         @RequestParam(value = "jobGroupName", required = false, defaultValue = "DEFAULT") String jobGroupName) {
+        jobService.resumeJob(jobName, jobGroupName);
+    }
+
+    @ApiOperation(value = "启动所有任务【集群下无效】")
     @GetMapping(value = "/startJobs")
     public void startJobs() {
         jobService.startJobs();
     }
 
-    @ApiOperation(value = "关闭所有任务（关闭后不能重启）")
+    @ApiOperation(value = "关闭所有任务（关闭后不能重启）【集群下无效】")
     @GetMapping(value = "/shutdownJobs")
     public void shutdownJobs() {
         jobService.shutdownJobs();
     }
 
-    @ApiOperation(value = "暂停所有任务")
+    @ApiOperation(value = "暂停所有任务【集群下无效】")
     @GetMapping(value = "/standbyJobs")
     public void standbyJobs() {
         jobService.standbyJobs();

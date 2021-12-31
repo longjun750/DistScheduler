@@ -145,6 +145,40 @@ public class JobServiceImpl implements IJobService {
     }
 
     /**
+     * 暂停任务
+     *
+     * @param jobName
+     * @param groupName
+     */
+    @Override
+    public void pauseJob(String jobName, String groupName) {
+        JobKey jobKey = new JobKey(jobName, groupName);
+        Scheduler sched = schedulerFactory.getScheduler();
+        try {
+            sched.pauseJob(jobKey);
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 任务启动
+     *
+     * @param jobName
+     * @param groupName
+     */
+    @Override
+    public void resumeJob(String jobName, String groupName) {
+        JobKey jobKey = new JobKey(jobName, groupName);
+        Scheduler sched = schedulerFactory.getScheduler();
+        try {
+            sched.resumeJob(jobKey);
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * @Description:启动所有定时任务
      */
     @Override

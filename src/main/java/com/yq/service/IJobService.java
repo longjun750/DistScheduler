@@ -17,6 +17,10 @@ public interface IJobService {
     void removeJob(String jobName, String jobGroupName,
                    String triggerName, String triggerGroupName);
 
+    void pauseJob(String jobName,String groupName);
+
+    void resumeJob(String jobName,String groupName);
+
     void startJobs();
 
     void shutdownJobs();
