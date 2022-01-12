@@ -87,7 +87,7 @@ public class QuartzSchedulerConfig {
     public CronTriggerFactoryBean job1Trigger(@Qualifier("jobFirstDetail") JobDetail jobDetail) {
         CronTriggerFactoryBean cronTriggerFactoryBean = new CronTriggerFactoryBean();
         cronTriggerFactoryBean.setJobDetail(jobDetail);
-        cronTriggerFactoryBean.setCronExpression("0 */5 * * * ?");
+        cronTriggerFactoryBean.setCronExpression("0 */1 * * * ?");
         return cronTriggerFactoryBean;
     }
 
@@ -103,7 +103,7 @@ public class QuartzSchedulerConfig {
     public CronTriggerFactoryBean job2Trigger(@Qualifier("jobSecondDetail") JobDetail jobDetail) {
         CronTriggerFactoryBean cronTriggerFactoryBean = new CronTriggerFactoryBean();
         cronTriggerFactoryBean.setJobDetail(jobDetail);
-        cronTriggerFactoryBean.setCronExpression("0 */10 * * * ?");
+        cronTriggerFactoryBean.setCronExpression("0 */2 * * * ?");
         return cronTriggerFactoryBean;
     }
 
@@ -119,7 +119,7 @@ public class QuartzSchedulerConfig {
     public CronTriggerFactoryBean job3Trigger(@Qualifier("jobThirdJobDetail") JobDetail jobDetail) {
         CronTriggerFactoryBean cronTriggerFactoryBean = new CronTriggerFactoryBean();
         cronTriggerFactoryBean.setJobDetail(jobDetail);
-        cronTriggerFactoryBean.setCronExpression("0 */10 * * * ?");
+        cronTriggerFactoryBean.setCronExpression("0 */5 * * * ?");
         return cronTriggerFactoryBean;
     }
 

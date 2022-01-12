@@ -37,25 +37,6 @@ public class SchedulerTest extends BaseTest {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        //第一种加密方法
-        //到druid-1.1.10.jar目录下打开cmd窗口，执行以下命令为密码ZHUwen12加密，随后获得公钥public key
-        //java -cp druid-1.1.10.jar com.alibaba.druid.filter.config.ConfigTools ZHUwen12
-        //第一种解密方法
-        String publicKey ="MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJ/yE73fLRCdZXR+q22b+TlbLuFLq84nGmJzj3eETJAFZbMszlh3e3Wd39DcvI/55T86/5DNOassR6CXAog47Y8CAwEAAQ==";
-        String encryptPassword ="dTEvIIioWX0LJMcrVkGB/BTxaolrSBZCOSvxcjWKkRr+Yug3bG/P5TQeeVw81UlIHJb+Dct+jujNQbibtEK9Ag==";
-        String decryptPassword = ConfigTools.decrypt(publicKey, encryptPassword);
-        System.out.println("decryptPassword："+decryptPassword);
 
-        //第二种加密方法
-        String pwd = "ZHUwen12";
-        String encryptPwd = ConfigTools.encrypt(pwd);
-        System.out.println("加密后："+encryptPwd);
-
-        //第二种解密方法
-        String decryptPwd = ConfigTools.decrypt(encryptPwd);
-        System.out.println("解密后："+decryptPwd);
-
-    }
 
 }
