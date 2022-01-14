@@ -179,19 +179,6 @@
         </repository>
     </repositories>
 
-    <distributionManagement>
-        <repository>
-            <id>bi-release</id>
-            <name>release仓库</name>
-            <url>https://bi-dev-ops.tuhu.cn/nexus/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>bi-snapshots</id>
-            <name>snapshots</name>
-            <url>https://bi-dev-ops.tuhu.cn/nexus/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <pluginRepositories>
         <pluginRepository>
             <id>aliyun_nexus</id>
