@@ -40,7 +40,8 @@ public class JobServiceImpl implements IJobService {
             triggerBuilder.withIdentity(triggerName, triggerGroupName);
             triggerBuilder.startNow();
             // 触发器时间设定
-            triggerBuilder.withSchedule(CronScheduleBuilder.cronSchedule(cron));
+            triggerBuilder.withSchedule(CronScheduleBuilder.cronSchedule(cron)
+                    .withMisfireHandlingInstructionFireAndProceed());
             // 创建Trigger对象
             CronTrigger trigger = (CronTrigger) triggerBuilder.build();
 
@@ -227,19 +228,19 @@ public class JobServiceImpl implements IJobService {
         //到druid-1.1.10.jar目录下打开cmd窗口，执行以下命令为密码ZHUwen12加密，随后获得公钥public key
         //java -cp druid-1.1.10.jar com.alibaba.druid.filter.config.ConfigTools ZHUwen12
         //第一种解密方法
-        String publicKey ="MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMKVlUFgEJ4l12RlELeM0hpTAJuh0wO9RMxuiPwtGADSfag9zFJRuIZ6+R18+SoZt/lsGSHiEHprkqID1sWT65UCAwEAAQ==";
-        String encryptPassword ="LHcl6TXti2/8KZc2S7gcAlgmWuq+9NpuKy4cz4DxBydiwAtfkjeip26ts90Ow/sasbdUwD8M4tdXbLheUe75Xw==";
+        String publicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMKVlUFgEJ4l12RlELeM0hpTAJuh0wO9RMxuiPwtGADSfag9zFJRuIZ6+R18+SoZt/lsGSHiEHprkqID1sWT65UCAwEAAQ==";
+        String encryptPassword = "LHcl6TXti2/8KZc2S7gcAlgmWuq+9NpuKy4cz4DxBydiwAtfkjeip26ts90Ow/sasbdUwD8M4tdXbLheUe75Xw==";
         String decryptPassword = ConfigTools.decrypt(publicKey, encryptPassword);
-        System.out.println("decryptPassword："+decryptPassword);
+        System.out.println("decryptPassword：" + decryptPassword);
 
         //第二种加密方法
         String pwd = "ZHUwen12";
         String encryptPwd = ConfigTools.encrypt(pwd);
-        System.out.println("加密后："+encryptPwd);
+        System.out.println("加密后：" + encryptPwd);
 
         //第二种解密方法
         String decryptPwd = ConfigTools.decrypt(encryptPwd);
-        System.out.println("解密后："+decryptPwd);
+        System.out.println("解密后：" + decryptPwd);
 
     }
 }
